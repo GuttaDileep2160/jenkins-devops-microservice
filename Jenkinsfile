@@ -10,7 +10,7 @@ pipeline {
 		echo "Test"
 	}
 
-post{
+	post{
 	always {
 		echo 'I always run no matter what'
 	}
@@ -20,5 +20,5 @@ post{
 	failure {
 		echo 'i run only when something fails'
 	}
-}
+	}
 }

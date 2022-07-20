@@ -1,24 +1,43 @@
 pipeline {
-	agent any
-	stage('Build') {
-		echo "Build"
-	}
-	stage('Test') {
-		echo "Test"
-	}
-	stage('Integration Test') {
-		echo "Test"
-	}
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello welcome to Jenkins'
+            }
+        }
+        stage('Build') {
+            steps {
+                echo 'Bulilding the project'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing the project'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying the project'
+            }
+        }
+        stage('Release') {
+            steps {
+                echo 'Releasig the project'
+            }
+        }
+    }
 
 	post{
-	always {
-		echo 'I always run no matter what'
-	}
-	success {
-		echo 'i run only when all r working fine'
-	}
-	failure {
-		echo 'i run only when something fails'
-	}
+		always{
+			echo 'i will run always'
+		}
+		success {
+			echo 'i run only during success'
+		}
+		failure{
+			echo 'i run only during failure'
+		}
 	}
 }

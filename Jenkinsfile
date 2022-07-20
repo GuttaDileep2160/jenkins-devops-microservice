@@ -9,7 +9,7 @@ pipeline {
 	stage('Integration Test') {
 		echo "Test"
 	}
-}
+
 post{
 	always {
 		echo 'I always run no matter what'
@@ -20,4 +20,5 @@ post{
 	failure {
 		echo 'i run only when something fails'
 	}
+}
 }

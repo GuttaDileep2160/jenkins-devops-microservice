@@ -17,7 +17,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Bulilding the project'
-				echo 'mvn --version'
+				sh 'mvn --version'
 				sh 'docker --version'
 				echo "PATH - $PATH"
 				echo "BuildNumber - $env.BUILD_NUMBER"

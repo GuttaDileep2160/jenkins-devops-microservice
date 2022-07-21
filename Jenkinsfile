@@ -1,6 +1,12 @@
 pipeline {
     agent any
 
+	environment{
+		dockerHome = tool 'myDocker'
+		mavenHome = tool 'myMaven'
+		PATH = "$dockerHome\bin:$mavenHome\bin:$PATH"
+	}
+
 	//agent { docker { image  'maven:3.8.6'  } }
     stages {
         stage('Hello') {
@@ -11,8 +17,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Bulilding the project'
-				//echo 'mvn --version'
-				//sh 'mvn --version'
+				echo 'mvn --version'
+				sh 'docker --version'
 				echo "PATH - $PATH"
 				echo "BuildNumber - $env.BUILD_NUMBER"
 				echo "BUILDTAG - $env.BUILD_TAG"
